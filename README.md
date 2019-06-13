@@ -268,3 +268,23 @@ we need a new minor release.
 This change essentially changed the API.  Thus, we require a new major release.
 
 [1]: https://github.com/graalvm/graal/blob/master/compiler/README.md
+
+### Running mx tests with code coverage
+
+Ensure the requirements are installed (one-off):
+
+```bash
+pip install -r requirements.txt
+```
+
+Run tests:
+
+```bash
+PYTHONPATH=. coverage run --source . -m pytest -s tests/mx.mxtests/mx_mxtests.py
+```
+
+or 
+
+```bash
+./run-mx-tests.sh
+```
