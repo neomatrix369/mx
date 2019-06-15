@@ -49,15 +49,20 @@ if [ -n "${MX_PYTHON_VERSION}" ]; then
     python_exe=python${MX_PYTHON_VERSION}
 else
     # Not all systems (e.g. Mac OS X) have 'python2' on the path.
-    type python2.7 >/dev/null 2>&1
+    type python3.7 >/dev/null 2>&1
     if [ $? -eq 0 ]; then
-        python_exe=python2.7
+        python_exe=python3.7
     else
-        type python2 > /dev/null 2>&1
+        python2.7 >/dev/null 2>&1
         if [ $? -eq 0 ]; then
-            python_exe=python2
+            python_exe=python2.7
         else
-            python_exe=python
+            type python2 > /dev/null 2>&1
+            if [ $? -eq 0 ]; then
+                python_exe=python2
+            else
+                python_exe=python
+            fi
         fi
     fi
 fi
